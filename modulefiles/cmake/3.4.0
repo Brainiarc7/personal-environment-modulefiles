@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## cmake modulefile
+## By Dennis Mungai <dmungai@kemri-wellcome.org>
+## September, 2015
+##
+
+module-whatis   "loads the cmake package"
+
+# for Tcl script use only
+set     appname         cmake
+set     version         3.4.0
+set     prefix          /apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+setenv  BOOST_ROOT      /apps/boost/1.50.0
+setenv  BOOST_INCLUDEDIR	/apps/boost/1.50.0/include
+setenv	BOOST_LIBRARYDIR	/apps/boost/1.50.0/lib	
+conflict        cmake
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man
+
+# Make sure boost/1.50.0 is loaded
+# cmake requires the boost/1.50.0 module to be loaded
+if { ![is-loaded boost/1.50.0] } {
+    module load boost/1.50.0
+}
+
+

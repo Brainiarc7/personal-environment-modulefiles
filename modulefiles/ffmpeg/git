@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## ffmpeg media transcoder modulefile
+## By Dennis Mungai <dmungai@kemri-wellcome.org>
+## February, 2015
+##
+
+# for Tcl script use only
+set     appname         ffmpeg
+set     version         git
+set     prefix          /apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	ffmpeg
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path	LD_LIBRARY_PATH	${prefix}/lib
+

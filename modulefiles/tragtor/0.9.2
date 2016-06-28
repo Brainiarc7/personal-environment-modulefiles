@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## tragtor media transcoder modulefile
+## By Dennis Mungai <dmungai@kemri-wellcome.org>
+## February, 2015
+##
+
+# for Tcl script use only
+set     appname         tragtor
+set     version         0.9.2
+set     prefix          /apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	tragtor
+
+prepend-path    PATH            ${exec_prefix}
+
+# Make sure ffmpeg/git is loaded
+# htseq was compiled against ffmpeg/git so it won't work with any others!
+if { ![is-loaded ffmpeg/git] } { 
+    module load ffmpeg/git
+}

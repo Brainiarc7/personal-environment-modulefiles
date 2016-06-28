@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## R modulefile
+## By Dennis Mungai <dmungai@kemri-wellcome.org>
+## July, 2015
+##
+
+module-whatis   "loads the R statistics package compiled against the Intel Kernel Math Library and gfortran"
+
+# for Tcl script use only
+set     appname         R
+set     version         3.3.0-mkl
+set     prefix          /apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+
+conflict	R
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man
+prepend-path	LD_LIBRARY_PATH		${prefix}/lib64/R
+
+# Make sure mkl/11.3.1.150 is loaded
+# R was compiled against mkl/11.3.1.150 so it won't work with any others!
+if { ![is-loaded mkl/11.3.1.150] } {
+    module load mkl/11.3.1.150
+}
+
+
+

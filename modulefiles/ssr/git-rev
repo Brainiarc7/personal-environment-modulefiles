@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## SSR media transcoder modulefile
+## By Dennis Mungai <dmungai@kemri-wellcome.org>
+## February, 2015
+##
+
+# for Tcl script use only
+set     appname         ssr
+set     version         git-rev
+set     prefix          /apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path	LD_LIBRARY_PATH	${prefix}/lib
+
+# Make sure ffmpeg/git is loaded
+# ssr was compiled against ffmpeg/git so it won't work with any others!
+if { ![is-loaded ffmpeg/git] } {
+    module load ffmpeg/git
+}
+

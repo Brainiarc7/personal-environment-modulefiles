@@ -1,0 +1,42 @@
+#%Module1.0#####################################################################
+##
+## R modulefile
+## By Dennis Mungai <dmungai@kemri-wellcome.org>
+## February, 2016
+##
+
+module-whatis   "loads the R statistics package"
+
+# for Tcl script use only
+set     appname         R
+set     version         3.3.0
+set     prefix          /apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+
+conflict	R
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man
+prepend-path	LD_LIBRARY_PATH		${prefix}/lib64/R
+
+# Make sure openmpi/1.10.3 is loaded
+# R was compiled against openmpi/1.10.3 so it won't work with any others!
+if { ![is-loaded openmpi/1.10.3] } {
+    module load openmpi/1.10.3
+}
+
+# Make sure hdf5/1.8.17 is loaded
+# R was compiled against hdf5/1.8.17 so it won't work with any others!
+if { ![is-loaded hdf5/1.8.17] } {
+    module load hdf5/1.8.17
+}
+
+
+
+#Make sure HDF4 is loaded
+#Some libraries require HDF4 to be available on R's path.
+if { ![is-loaded hdf4/4.2.11] } {
+    module load hdf4/4.2.11
+}
+

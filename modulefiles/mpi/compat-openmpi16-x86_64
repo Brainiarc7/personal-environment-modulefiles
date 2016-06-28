@@ -1,0 +1,19 @@
+#%Module 1.0
+#
+#  OpenMPI module for use with 'environment-modules' package:
+#
+conflict		mpi
+prepend-path 		PATH 		/usr/lib64/compat-openmpi16/bin
+prepend-path 		LD_LIBRARY_PATH /usr/lib64/compat-openmpi16/lib
+prepend-path		PYTHONPATH	/usr/lib64/python2.7/site-packages/compat-openmpi16
+prepend-path		MANPATH		/usr/share/man/compat-openmpi16-x86_64
+setenv 			MPI_BIN		/usr/lib64/compat-openmpi16/bin
+setenv			MPI_SYSCONFIG	/etc/compat-openmpi16-x86_64
+setenv			MPI_FORTRAN_MOD_DIR	/usr/lib64/gfortran/modules/compat-openmpi16-x86_64
+setenv			MPI_INCLUDE	/usr/include/compat-openmpi16-x86_64
+setenv	 		MPI_LIB		/usr/lib64/compat-openmpi16/lib
+setenv			MPI_MAN		/usr/share/man/compat-openmpi16-x86_64
+setenv			MPI_PYTHON_SITEARCH	/usr/lib64/python2.7/site-packages/compat-openmpi16
+setenv			MPI_COMPILER	compat-openmpi16-x86_64
+setenv			MPI_SUFFIX	_compat-openmpi16
+setenv	 		MPI_HOME	/usr/lib64/compat-openmpi16

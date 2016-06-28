@@ -1,0 +1,38 @@
+#%Module1.0#####################################################################
+##
+## modules compilers/icc
+##
+## modulefiles/compilers/icc.  Written by Dennis Mungai
+##
+proc ModulesHelp { } {
+        global version modroot
+
+        puts stderr "Intel C Compiler - sets the Environment for ICC's mkl/ in /apps/mkl"
+}
+
+module-whatis   "Intel(R) compiler suite (icc, icpc, ifort), debugger (idb), IPP and TBB ver 11.3.1.150"
+
+
+setenv           MKLROOT /apps/mkl/compilers_and_libraries_2016.1.150/linux/mkl
+setenv		 INTEL_MKL_ROOT /apps/mkl
+prepend-path     MANPATH MANPATH=/apps/mkl/man/common:/apps/mkl/compilers_and_libraries_2016.1.150/linux/man/en_US:/apps/mkl/documentation_2016/en/debugger//gdb-ia/man/:/apps/mkl/documentation_2016/en/debugger//gdb-mic/man/:/apps/mkl/documentation_2016/en/debugger//gdb-igfx/man/
+setenv           INTEL_LICENSE_FILE /apps/mkl/compilers_and_libraries_2016.1.150/linux/licenses:/opt/intel/licenses:/home/lin/intel/licenses
+setenv           LIBRARY_PATH /apps/mkl/compilers_and_libraries_2016.1.150/linux/ipp/lib/intel64:/apps/mkl/compilers_and_libraries_2016.1.150/linux/compiler/lib/intel64:/apps/mkl/compilers_and_libraries_2016.1.150/linux/mkl/lib/intel64:/apps/mkl/compilers_and_libraries_2016.1.150/linux/tbb/lib/intel64/gcc4.4:/apps/mkl/compilers_and_libraries_2016.1.150/linux/daal/lib/intel64_lin:/apps/mkl/compilers_and_libraries_2016.1.150/linux/daal/../tbb/lib/intel64_lin/gcc4.4:/apps/mkl/compilers_and_libraries_2016.1.150/linux/daal/../compiler/lib/intel64_lin
+setenv           MIC_LD_LIBRARY_PATH /apps/mkl/11.3.1.150/compilers_and_libraries_2016.1.150/linux/compiler/lib/mic:/apps/mkl/11.3.1.150/compilers_and_libraries_2016.1.150/linux/mpi/mic/lib:/apps/mkl/11.3.1.150/compilers_and_libraries_2016.1.150/linux/tbb/lib/mic:/apps/mkl/11.3.1.150/compilers_and_libraries_2016.1.150/linux/compiler/lib/mic:/apps/mkl/11.3.1.150/compilers_and_libraries_2016.1.150/linux/mkl/lib/mic
+prepend-path     LD_LIBRARY_PATH /apps/mkl/11.3.1.150/compilers_and_libraries_2016.1.150/linux/compiler/lib/intel64:/apps/mkl/11.3.1.150/compilers_and_libraries_2016.1.150/linux/ipp/lib/intel64:/apps/mkl/11.3.1.150/compilers_and_libraries_2016.1.150/linux/tbb/lib/intel64/gcc4.4:/apps/mkl/11.3.1.150/compilers_and_libraries_2016.1.150/linux/compiler/lib/intel64:/apps/mkl/11.3.1.150/compilers_and_libraries_2016.1.150/linux/mkl/lib/intel64:/apps/mkl/11.3.1.150/compilers_and_libraries_2016.1.150/linux/daal/lib/intel64_lin:/apps/mkl/11.3.1.150/compilers_and_libraries_2016.1.150/linux/daal/../tbb/lib/intel64_lin/gcc4.4:/apps/mkl/11.3.1.150/compilers_and_libraries_2016.1.150/linux/daal/../compiler/lib/intel64_lin
+setenv           MIC_LIBRARY_PATH /apps/mkl/compilers_and_libraries_2016.1.150/linux/compiler/lib/mic:/apps/mkl/compilers_and_libraries_2016.1.150/linux/mpi/mic/lib:/apps/mkl/compilers_and_libraries_2016.1.150/linux/tbb/lib/mic
+setenv           CPATH /apps/mkl/compilers_and_libraries_2016.1.150/linux/ipp/include:/apps/mkl/compilers_and_libraries_2016.1.150/linux/mkl/include:/apps/mkl/compilers_and_libraries_2016.1.150/linux/tbb/include:/apps/mkl/compilers_and_libraries_2016.1.150/linux/daal/include
+prepend-path     PATH /apps/mkl/compilers_and_libraries_2016.1.150/linux/bin/intel64:/apps/mkl/debugger_2016/gdb/intel64_mic/bin
+prepend-path     DAALROOT /apps/mkl/compilers_and_libraries_2016.1.150/linux/daal
+prepend-path     CLASSPATH /apps/mkl/compilers_and_libraries_2016.1.150/linux/daal/lib/daal.jar
+setenv           TBBROOT /apps/mkl/compilers_and_libraries_2016.1.150/linux/tbb
+setenv		 IPPROOT /apps/mkl/compilers_and_libraries_2016.1.150/linux/ipp
+setenv		 NLSPATH /apps/mkl/compilers_and_libraries_2016.1.150/linux/compiler/lib/intel64/locale/%l_%t/%N:/apps/mkl/compilers_and_libraries_2016.1.150/linux/mkl/lib/intel64/locale/%l_%t/%N:/apps/mkl/debugger_2016/gdb/intel64_mic/share/locale/%l_%t/%N:/apps/mkl/debugger_2016/gdb/intel64/share/locale/%l_%t/%N
+setenv		 GDBCROSS /apps/mkl/debugger_2016/gdb/intel64_mic/bin/gdb-mic
+setenv		 MPM_LAUNCHER /apps/mkl/debugger_2016/mpm/mic/bin/start_mpm.sh
+setenv		 INTEL_PYTHONHOME /apps/mkl/debugger_2016/python/intel64/
+setenv		 INFOPATH /apps/mkl/documentation_2016/en/debugger//gdb-ia/info/:/apps/mkl/documentation_2016/en/debugger//gdb-mic/info/:/apps/mkl/documentation_2016/en/debugger//gdb-igfx/info/
+conflict         mkl
+
+
+
